@@ -49,7 +49,9 @@ function! s:main()
 endfunction
 
 xnoremap <Plug>RubocopAutocorrect :call <SID>main()<cr>
-xmap = <Plug>RubocopAutocorrect
+if !hasmapto('<Plug>RubocopAutocorrect')
+  xmap <leader>b <Plug>RubocopAutocorrect
+endif
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
